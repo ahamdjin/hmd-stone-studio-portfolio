@@ -15,11 +15,11 @@ React + TypeScript + Vite + Framer Motion. This project replaces the Lovable arc
 - Simplified experiences when the visitor enables *Reduce motion*.
 - Mobile menu supports Escape, and auto-closes when navigating.
 
-## IMPORTANT: temporary visuals
-The photos in src/hmd/content.ts (IMAGES) are external Unsplash art-direction placeholders, **not HMD Stone completed jobs**. The gallery intentionally says "INSPIRATION IMAGES — NOT HMD STONE COMPLETED PROJECTS". Replace every entry in that single object after generating or receiving licensed final imagery. The material studies are CSS/SVG **illustrations**, not photographed product slabs, and should not be represented as exact product matches.
+## Image collection
+The active pages use 15 original AI-generated concept images, matched to the olive-black, bone and champagne palette. These are **not HMD Stone completed jobs** or exact supplier product samples. Optimized WebP assets are in `public/images/generated/`; full-resolution PNG originals, generation prompts and the asset manifest are in `output/imagegen/`. Preview all 15 at `/generated-gallery.html`. Existing concept-image disclosures remain visible.
 
 ## Go-live checklist
-1. Replace IMAGES in src/hmd/content.ts with approved originals stored in /public/images/ or an image CDN.
+1. Approve the generated concept imagery or replace it with approved real project photography before presenting any image as completed HMD Stone work.
 2. Confirm accurate business address, service areas, phone, email, business hours, services, and actual project images with HMD Stone. Do not add unverified claims.
 3. Connect the contact form to a verified email or CRM endpoint (e.g. GoHighLevel), protect against spam, give real delivery/error feedback, add data-handling notice. Current form only copies a project brief.
 4. Replace the concept material swatches with approved samples if representing specific products, and add care notes.

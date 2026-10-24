@@ -2,7 +2,7 @@
 
 /* HMD STONE — art directed motion system
    Palette: ink / bone / champagne / mineral gray.
-   No generated images are needed to swap the assets later. */
+   Original generated concept imagery uses the same material palette. */
 .hmd-site {
   --ink: #11130f;
   --midnight: #191b17;
@@ -79,7 +79,7 @@
 .hmd-hero { position: relative; min-height: 760px; height: 100svh; max-height: 1100px; overflow: hidden; background: #141713; color: #fff; isolation: isolate; }
 .hmd-hero-image-wrap { position: absolute; inset: 0; overflow: hidden; }
 .hmd-hero-image { position: absolute; inset: -10% 0; will-change: transform; }
-.hmd-hero-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; filter: saturate(.65) contrast(1.05); }
+.hmd-hero-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; filter: saturate(.9) contrast(1.02); }
 .hmd-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(0,0,0,.58),rgba(0,0,0,.25) 57%,rgba(0,0,0,.2)), linear-gradient(0deg,rgba(0,0,0,.56),transparent 48%,rgba(0,0,0,.19)); }
 .hmd-hero-grid { position: absolute; inset: 0; z-index: 1; display: grid; grid-template-columns: repeat(3,1fr); pointer-events: none; }
 .hmd-hero-grid span { border-right: 1px solid rgba(255,255,255,.13); }
@@ -113,7 +113,7 @@
 .hmd-manifesto-head > p { max-width: 380px; font-size: 1.09rem; line-height: 1.75; margin: 55px 0 25px 8%; color: #55574f; }
 .hmd-manifesto-head > .hmd-round-link { margin-left: 8%; }
 .hmd-manifesto-photo-frame { width: 100%; margin-top: 14%; position: relative; aspect-ratio: 4/5.15; overflow: visible; }
-.hmd-manifesto-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.65); }
+.hmd-manifesto-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.95); }
 .hmd-photo-index { position: absolute; bottom: -27px; left: 0; font-size: .55rem; letter-spacing: .12em; color: #78796f; }
 .hmd-orbit-stamp { width: 134px; height: 134px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.65); border-radius: 50%; position: absolute; right: -48px; top: -48px; background: #dac4aa; color: #4a3b2c; font-size: 10px; letter-spacing: .12em; text-align: center; padding: 10px; }
 
@@ -182,8 +182,8 @@
 .hmd-look-track { display: flex; width: 400vw; height: 100%; will-change: transform; }
 .hmd-look-panel { position: relative; height: 100%; width: 100vw; flex: 0 0 100vw; overflow: hidden; isolation: isolate; }
 .hmd-look-image { position: absolute; z-index: -1; inset: 0; overflow: hidden; }
-.hmd-look-image img { width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.67) brightness(.73); transition: transform 1.35s cubic-bezier(.2,1,.22,1), filter 1.2s; }
-.hmd-look-panel:hover .hmd-look-image img { transform: scale(1.055); filter: saturate(.8) brightness(.81); }
+.hmd-look-image img { width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.94) brightness(.85); transition: transform 1.35s cubic-bezier(.2,1,.22,1), filter 1.2s; }
+.hmd-look-panel:hover .hmd-look-image img { transform: scale(1.055); filter: saturate(.98) brightness(.94); }
 .hmd-look-gradient { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(0,0,0,.46),rgba(0,0,0,.08) 80%),linear-gradient(0deg,rgba(0,0,0,.56),transparent 50%,rgba(0,0,0,.26)); }
 .hmd-look-content { position: relative; z-index: 2; width: 100%; height: 100%; padding: clamp(160px,19vh,260px) clamp(22px,5.4vw,102px) clamp(66px,9vh,115px); display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; }
 .hmd-look-kicker { font-size: .7rem; letter-spacing: .17em; font-weight: 700; color: #f7f3ed; }
@@ -212,7 +212,7 @@
 /* Chapter 07 — immersive invitation. */
 .hmd-closing { height: min(920px,94svh); min-height: 620px; position: relative; overflow: hidden; background: #20231d; color: #fff; }
 .hmd-closing-bg { position: absolute; inset: 0; }
-.hmd-closing-bg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.58) brightness(.68); }
+.hmd-closing-bg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.88) brightness(.85); }
 .hmd-closing-overlay { position: absolute; inset: 0; background: rgba(10,13,10,.44); }
 .hmd-closing-copy { position: relative; z-index: 2; display: flex; height: 100%; flex-direction: column; justify-content: center; align-items: flex-start; }
 .hmd-closing-copy h2 { font-size: clamp(5rem, 10.2vw, 12.3rem); letter-spacing: -.095em; font-weight: 500; line-height: .86; margin: clamp(30px, 6vh, 70px) 0 28px; }
@@ -400,3 +400,6 @@
   .hmd-marquee-track { animation: none; }
   .hmd-look-track { transform: none !important; }
 }
+
+/* Generated concept imagery: retain material detail and quiet text overlays. */
+.hmd-contact-inspiration { display:block; width:100%; max-width:420px; aspect-ratio:4/3; object-fit:cover; object-position:center 55%; margin-top:36px; }

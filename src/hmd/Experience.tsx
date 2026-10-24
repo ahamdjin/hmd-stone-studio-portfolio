@@ -5,7 +5,7 @@ import {
   useReducedMotion, useScroll, useSpring, useTransform,
 } from "framer-motion";
 import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, Check, Copy, Menu, X } from "lucide-react";
-import { IMAGES, LOOKBOOK, MATERIALS, PROCESS, SERVICES, type MaterialId } from "./content";
+import { IMAGES, LOOKBOOK, MATERIAL_TEXTURES, MATERIALS, PROCESS, SERVICES, type MaterialId } from "./content";
 import "./styles.css";
 
 /* Motion is part of the art direction, but never a prerequisite for reading. */
@@ -166,7 +166,7 @@ function Hero() {
     <section className="hmd-hero" ref={heroRef}>
       <motion.div className="hmd-hero-image-wrap" style={reduced ? undefined : { borderRadius: imageRadius }}>
         <motion.div className="hmd-hero-image" style={reduced ? undefined : { scale, y: imageY }}>
-          <img src={IMAGES.hero} alt="Contemporary interior — temporary art direction imagery" fetchPriority="high" />
+          <img src={IMAGES.hero} alt="AI-generated kitchen with pale stone island and dark oak cabinetry" />
         </motion.div>
         <div className="hmd-hero-shade" />
         <div className="hmd-hero-grid" aria-hidden="true"><span /><span /><span /></div>
@@ -199,7 +199,7 @@ function Marquee() {
   </div>;
 }
 
-function Manifesto() {
+function Manifesto({ image = IMAGES.detail }: { image?: string }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const reduced = useReducedMotion();
@@ -216,7 +216,7 @@ function Manifesto() {
             <RoundLink to="/about">THE HMD APPROACH</RoundLink>
           </div>
           <motion.div className="hmd-manifesto-photo-frame" style={reduced ? undefined : { y: floatY }}>
-            <motion.img src={IMAGES.detail} alt="Design inspiration interior — temporary placeholder" loading="lazy" style={reduced ? undefined : { scale: imageScale }} />
+            <motion.img src={image} alt="AI-generated stone material and design inspiration" loading="lazy" style={reduced ? undefined : { scale: imageScale }} />
             <span className="hmd-photo-index">FIG. 01 — THE MATERIAL EXPRESSION</span>
             <motion.span className="hmd-orbit-stamp" animate={reduced ? undefined : { rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }}>HMD STONE ✳ MADE TO MATTER ✳ </motion.span>
           </motion.div>
@@ -265,21 +265,17 @@ function MaterialExplorer({ fullPage = false }: { fullPage?: boolean }) {
           <div className="hmd-material-visual">
             <AnimatePresence mode="wait">
               <motion.div key={chosen} className={"hmd-slab hmd-slab-" + chosen}
+                style={{ backgroundImage: `url(${MATERIAL_TEXTURES[chosen]})`, backgroundSize: "cover", backgroundPosition: "center" }}
+                role="img" aria-label={`AI-generated ${current.name.toLowerCase()} surface study`}
                 initial={reduced ? false : { opacity: 0, clipPath: "inset(0 100% 0 0)", scale: 1.08 }}
                 animate={{ opacity: 1, clipPath: "inset(0 0% 0 0)", scale: 1 }}
                 exit={{ opacity: 0, clipPath: "inset(0 0 0 100%)", scale: 1.02 }}
                 transition={{ duration: 0.8, ease }}>
-                <svg className="hmd-slab-veins" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                  <path d="M-60 50 C240 160 65 370 470 450 S530 720 900 830" />
-                  <path d="M-60 85 C230 200 100 410 480 470 S590 710 880 850" />
-                  <path d="M130 -100 C65 190 330 260 300 500 S670 610 490 920" />
-                  <path d="M170 -120 C120 190 360 250 340 500 S690 580 550 950" />
-                </svg>
                 <div className="hmd-slab-sheen" />
               </motion.div>
             </AnimatePresence>
             <span className="hmd-slab-index">SURFACE STUDY / {current.no}</span>
-            <span className="hmd-slab-concept">ARTISTIC MATERIAL STUDY — NOT A PRODUCT SAMPLE</span>
+            <span className="hmd-slab-concept">AI MATERIAL STUDY — NOT A PRODUCT SAMPLE</span>
           </div>
           <div className="hmd-material-controls">
             <div className="hmd-material-count">EXPLORE / 04 MATERIALS</div>
@@ -364,7 +360,7 @@ function Lookbook() {
         <motion.div className="hmd-look-track" style={desktop && !reduced ? { x } : undefined}>
           {LOOKBOOK.map((item, i) => <LookbookPanel item={item} index={i} key={item.no} />)}
         </motion.div>
-        <span className="hmd-look-disclaimer">CONCEPT / INSPIRATION IMAGES — NOT HMD STONE COMPLETED PROJECTS</span>
+        <span className="hmd-look-disclaimer">AI DESIGN INSPIRATION — NOT HMD STONE COMPLETED PROJECTS</span>
       </div>
     </section>
   );
@@ -395,14 +391,14 @@ function Process() {
   );
 }
 
-function Closing() {
+function Closing({ image = IMAGES.atmosphere }: { image?: string }) {
   const section = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: section, offset: ["start end", "end start"] });
   const reduced = useReducedMotion();
   const scale = useTransform(scrollYProgress, [0, 1], [1.22, 1]);
   return (
     <section className="hmd-closing" ref={section}>
-      <motion.div className="hmd-closing-bg" style={reduced ? undefined : { scale }}><img src={IMAGES.atmosphere} alt="Atmospheric interior — temporary design reference" loading="lazy" /></motion.div>
+      <motion.div className="hmd-closing-bg" style={reduced ? undefined : { scale }}><img src={image} alt="AI-generated stone interior inspiration" loading="lazy" /></motion.div>
       <div className="hmd-closing-overlay" />
       <div className="hmd-container hmd-closing-copy">
         <Overline light>YOUR NEXT CHAPTER BEGINS HERE</Overline>
@@ -440,17 +436,17 @@ function InteriorHero({ eyebrow, first, second, description }: { eyebrow: string
 }
 
 export function ServicesPage() {
-  return <Shell><main><InteriorHero eyebrow="WHAT WE CAN CREATE" first="STONE FOR" second="LIVING." description="Explore installation services shaped around real spaces, real routines, and individual design ideas." /><Services condensed /><Process /><Closing /></main></Shell>;
+  return <Shell><main><InteriorHero eyebrow="WHAT WE CAN CREATE" first="STONE FOR" second="LIVING." description="Explore installation services shaped around real spaces, real routines, and individual design ideas." /><Services condensed /><Process /><Closing image={IMAGES.installation} /></main></Shell>;
 }
 
 export function MaterialsPage() {
-  return <Shell><main><InteriorHero eyebrow="A WORLD OF MATERIALS" first="LET STONE" second="SPEAK." description="Every material has a character. Explore what makes each surface unique and find a direction that feels like yours." /><MaterialExplorer fullPage /><Closing /></main></Shell>;
+  return <Shell><main><InteriorHero eyebrow="A WORLD OF MATERIALS" first="LET STONE" second="SPEAK." description="Every material has a character. Explore what makes each surface unique and find a direction that feels like yours." /><MaterialExplorer fullPage /><Closing image={IMAGES.charcoal} /></main></Shell>;
 }
 
 export function AboutPage() {
   return <Shell><main><InteriorHero eyebrow="INTRODUCING HMD STONE" first="THE ART IS" second="IN THE DETAIL." description="A countertop shouldn't simply fill a space. It should elevate it." />
     <section className="hmd-about-story"><div className="hmd-container hmd-about-grid"><Overline>OUR POINT OF VIEW</Overline><div><h2><Reveal>LESS ORDINARY.</Reveal><Reveal><i>MORE YOU.</i></Reveal></h2><p>HMD Stone is a countertop and stone-installation service with an appreciation for considered design. We believe the best surface is one that belongs to the architecture, responds to the way you live, and feels right long after the first impression.</p><p>Whether you're planning a new kitchen, refreshing a bathroom, or imagining a statement feature, the starting point is the same: listen, explore the possibilities, and get the details right.</p><RoundLink to="/contact">TELL US YOUR IDEA</RoundLink></div></div></section>
-    <Manifesto /><Closing />
+    <Manifesto image={IMAGES.selection} /><Closing image={IMAGES.customStonework} />
   </main></Shell>;
 }
 
@@ -485,7 +481,7 @@ export function ContactPage() {
   return <Shell><main>
     <InteriorHero eyebrow="HAVE SOMETHING IN MIND?" first="LET'S START" second="SOMETHING." description="Tell us about the space you have in mind. A remarkable result starts with the right conversation." />
     <section className="hmd-contact-area"><div className="hmd-container hmd-contact-grid">
-      <div className="hmd-contact-aside"><Overline>YOUR PROJECT BEGINS HERE</Overline><h2>GREAT SPACES<br /><i>START HERE.</i></h2><p>From the first material choice to the finishing detail, we're interested in what makes your project yours.</p><div className="hmd-contact-aside-note">01 / SHARE YOUR IDEA<br />02 / CHOOSE YOUR DIRECTION<br />03 / CONNECT WITH HMD STONE</div></div>
+      <div className="hmd-contact-aside"><Overline>YOUR PROJECT BEGINS HERE</Overline><h2>GREAT SPACES<br /><i>START HERE.</i></h2><p>From the first material choice to the finishing detail, we're interested in what makes your project yours.</p><img className="hmd-contact-inspiration" src={IMAGES.vanityDetail} alt="AI-generated quartzite vanity design inspiration" loading="lazy" /><div className="hmd-contact-aside-note">01 / SHARE YOUR IDEA<br />02 / CHOOSE YOUR DIRECTION<br />03 / CONNECT WITH HMD STONE</div></div>
       <form className="hmd-contact-form" onSubmit={submit}>
         <p className="hmd-form-intro">A FEW DETAILS ABOUT YOUR PROJECT <span>✳</span></p>
         <div className="hmd-form-two">

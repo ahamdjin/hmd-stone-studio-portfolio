@@ -1,8 +1,8 @@
 /**
- * HMD Stone content and temporary art direction.
+ * HMD Stone content and generated concept imagery.
  *
- * Every external photo is a VISUAL PLACEHOLDER, not a photograph of HMD Stone's
- * completed work. Replace these centrally with approved, original assets.
+ * All imagery is AI-generated design inspiration, not photographs of HMD Stone's
+ * completed work. Stone textures are conceptual, not exact supplier samples.
  * Do not add addresses, reviews, guarantees, or project claims without verification.
  */
 export const BRAND = {
@@ -13,12 +13,24 @@ export const BRAND = {
 };
 
 export const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=2200&q=85&auto=format&fit=crop",
-  detail: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1500&q=85&auto=format&fit=crop",
-  kitchen: "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?w=1800&q=85&auto=format&fit=crop",
-  island: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1800&q=85&auto=format&fit=crop",
-  bathroom: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800&q=85&auto=format&fit=crop",
-  atmosphere: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1800&q=85&auto=format&fit=crop",
+  hero: "/images/generated/01-hero-kitchen.webp",
+  detail: "/images/generated/02-stone-edge-detail.webp",
+  kitchen: "/images/generated/03-kitchen-statement.webp",
+  island: "/images/generated/04-sculpted-island.webp",
+  bathroom: "/images/generated/05-bathroom-vanity.webp",
+  atmosphere: "/images/generated/06-atmosphere-closing.webp",
+  customStonework: "/images/generated/07-custom-stone-fireplace.webp",
+  charcoal: "/images/generated/08-charcoal-kitchen.webp",
+  installation: "/images/generated/09-installation-craft.webp",
+  selection: "/images/generated/10-stone-selection.webp",
+  vanityDetail: "/images/generated/11-vanity-detail.webp",
+};
+
+export const MATERIAL_TEXTURES = {
+  quartz: "/images/generated/12-material-quartz.webp",
+  marble: "/images/generated/13-material-marble.webp",
+  quartzite: "/images/generated/14-material-quartzite.webp",
+  granite: "/images/generated/15-material-granite.webp",
 };
 
 export type MaterialId = "quartz" | "marble" | "quartzite" | "granite";
@@ -104,7 +116,7 @@ export const LOOKBOOK = [
     title: "Kitchen\nstatement",
     category: "KITCHEN SURFACES",
     image: IMAGES.kitchen,
-    alt: "Temporary inspiration photograph of a contemporary kitchen interior",
+    alt: "AI-generated design inspiration: ivory stone kitchen and oak cabinetry",
   },
   {
     no: "02",
@@ -112,7 +124,7 @@ export const LOOKBOOK = [
     title: "Sculpted\nislands",
     category: "KITCHEN ISLANDS",
     image: IMAGES.island,
-    alt: "Temporary inspiration photograph of a luxury kitchen island",
+    alt: "AI-generated design inspiration: sculptural quartzite waterfall island",
   },
   {
     no: "03",
@@ -120,15 +132,15 @@ export const LOOKBOOK = [
     title: "Quiet\nluxury",
     category: "BATHROOM SURFACES",
     image: IMAGES.bathroom,
-    alt: "Temporary inspiration photograph of a modern interior",
+    alt: "AI-generated design inspiration: marble double vanity",
   },
   {
     no: "04",
     kicker: "THE MATERIAL MATTERS",
     title: "Infinite\npossibility",
     category: "CUSTOM STONEWORK",
-    image: IMAGES.detail,
-    alt: "Temporary inspiration photograph of an interior detail",
+    image: IMAGES.customStonework,
+    alt: "AI-generated design inspiration: custom quartzite fireplace cladding",
   },
 ];
 
