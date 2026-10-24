@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap");
+
+/* HMD STONE — art directed motion system
+   Palette: ink / bone / champagne / mineral gray.
+   No generated images are needed to swap the assets later. */
+.hmd-site {
+  --ink: #11130f;
+  --midnight: #191b17;
+  --bone: #f0eee8;
+  --chalk: #e5e1d5;
+  --champagne: #c6a782;
+  --muted: #8c8d86;
+  background: var(--bone);
+  color: var(--ink);
+  width: 100%;
+  min-width: 0;
+  overflow: clip;
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hmd-site *, .hmd-site *::before, .hmd-site *::after { box-sizing: border-box; }
+.hmd-site a { text-decoration: none; }
+.hmd-site button, .hmd-site input, .hmd-site select, .hmd-site textarea { font: inherit; }
+.hmd-site button, .hmd-site a { -webkit-tap-highlight-color: transparent; }
+.hmd-site ::selection { background: var(--champagne); color: var(--ink); }
+.hmd-site :focus-visible { outline: 2px solid var(--champagne); outline-offset: 5px; }
+.hmd-container { width: min(100%, 1800px); padding: 0 clamp(22px, 5.4vw, 102px); margin-inline: auto; }
+.hmd-display { margin: 0; font-size: clamp(4.2rem, 8.7vw, 10.5rem); line-height: .83; font-weight: 500; letter-spacing: -.095em; text-transform: uppercase; }
+.hmd-display i, .hmd-closing h2 i, .hmd-about-story h2 i { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; text-transform: none; letter-spacing: -.055em; }
+.hmd-reveal-mask { display: block; overflow: hidden; padding: .09em .09em .12em 0; margin-bottom: -.14em; }
+.hmd-reveal-inside { display: block; transform-origin: bottom left; }
+.hmd-overline { display: inline-flex; gap: .8rem; align-items: center; color: #62655d; font-size: .68rem; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
+.hmd-overline-star { font-size: 16px; color: #a28763; }
+.hmd-overline-light { color: #d0ccc1; }
+.hmd-scroll-line { position: fixed; top: 0; left: 0; height: 3px; width: 100%; z-index: 90; background: var(--champagne); transform-origin: left; pointer-events: none; }
+
+/* Navigation and editorial full-screen overlay. */
+.hmd-nav {
+  position: fixed; z-index: 75; top: 0; left: 0; right: 0; display: flex;
+  align-items: center; justify-content: space-between; min-height: 89px;
+  padding: 12px clamp(22px, 5.4vw, 102px); color: #fff;
+  transition: background .55s ease, min-height .55s ease, box-shadow .55s ease;
+}
+.hmd-nav-solid { background: rgba(17,19,15,.95); min-height: 74px; box-shadow: 0 1px 0 rgba(255,255,255,.1); backdrop-filter: blur(20px); }
+.hmd-logo { color: inherit; display: inline-flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.33rem; letter-spacing: -.055em; white-space: nowrap; }
+.hmd-logo-thin { font-weight: 400; margin-left: 3px; }
+.hmd-logo-symbol { width: 29px; height: 32px; position: relative; display: inline-flex; align-items: center; overflow: hidden; gap: 3px; transform: skewY(-8deg); }
+.hmd-logo-symbol span { background: #dfc7a9; width: 7px; display: block; transform: skewY(-25deg); }
+.hmd-logo-symbol span:nth-child(1) { height: 20px; }
+.hmd-logo-symbol span:nth-child(2) { height: 30px; }
+.hmd-logo-symbol span:nth-child(3) { height: 25px; }
+.hmd-nav-links { display: flex; gap: clamp(13px,2.4vw,38px); align-items: center; }
+.hmd-nav-links a { color: rgba(255,255,255,.68); font-size: .72rem; letter-spacing: .065em; transition: color .25s ease; }
+.hmd-nav-links a:hover, .hmd-nav-links a.is-active { color: #fff; }
+.hmd-nav-quote { display: inline-flex; color: #fff; border-bottom: 1px solid rgba(255,255,255,.58); padding: 10px 0; align-items: center; gap: 15px; font-size: .65rem; font-weight: 700; letter-spacing: .12em; transition: color .25s, border-color .25s; }
+.hmd-nav-quote:hover { color: var(--champagne); border-color: var(--champagne); }
+.hmd-menu-toggle { display: none; border: 0; padding: 7px; color: #fff; background: transparent; cursor: pointer; }
+.hmd-menu-overlay { position: fixed; z-index: 65; inset: 0; background: #1c211b; color: #f8f6ec; display: flex; align-items: center; }
+.hmd-menu-inner { width: min(100%, 1000px); margin-inline: auto; padding: 90px 7vw 36px; }
+.hmd-menu-inner > div a { color: #f3f0e7; display: flex; gap: 20px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.14); font-size: clamp(2.5rem, 6vw, 5.2rem); letter-spacing: -.07em; line-height: 1.1; font-weight: 500; }
+.hmd-menu-inner > div a span { font-size: 12px; font-weight: 500; letter-spacing: 0; color: #ab9375; }
+.hmd-menu-inner > div a svg { margin-left: auto; align-self: center; }
+.hmd-menu-cta { display: inline-flex; align-items: center; gap: 12px; margin-top: 30px; color: #ccb194; font-size: .7rem; letter-spacing: .12em; }
+.hmd-intro { position: fixed; z-index: 100; inset: 0; background: #e8e2d4; color: #141713; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 22px; }
+.hmd-intro > span { font-size: clamp(3rem, 9vw, 8rem); line-height: 1; font-weight: 700; letter-spacing: .1em; }
+.hmd-intro em { font-family: "Instrument Serif", serif; font-weight: 400; }
+.hmd-intro small { font-size: .55rem; letter-spacing: .26em; }
+.hmd-intro-track { height: 1px; width: min(360px,70vw); background: #bbb5aa; }
+.hmd-intro-track > div { width: 100%; height: 100%; background: #1c211b; transform-origin: left; }
+
+/* Magnetic button and circular response. */
+.hmd-round-link { color: inherit; display: inline-flex; align-items: center; gap: 17px; font-size: .67rem; letter-spacing: .14em; font-weight: 700; white-space: nowrap; width: fit-content; }
+.hmd-round-icon { flex: none; display: grid; place-items: center; width: 58px; height: 58px; border: 1px solid currentColor; border-radius: 50%; transition: background .4s, color .4s, border .4s; }
+.hmd-round-link:hover .hmd-round-icon { color: #191b17; background: #dbc4a8; border-color: #dbc4a8; }
+.hmd-round-link-light { color: #f6f1e8; }
+
+/* Chapter 01 — immersive cinematography. */
+.hmd-hero { position: relative; min-height: 760px; height: 100svh; max-height: 1100px; overflow: hidden; background: #141713; color: #fff; isolation: isolate; }
+.hmd-hero-image-wrap { position: absolute; inset: 0; overflow: hidden; }
+.hmd-hero-image { position: absolute; inset: -10% 0; will-change: transform; }
+.hmd-hero-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; filter: saturate(.65) contrast(1.05); }
+.hmd-hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(0,0,0,.58),rgba(0,0,0,.25) 57%,rgba(0,0,0,.2)), linear-gradient(0deg,rgba(0,0,0,.56),transparent 48%,rgba(0,0,0,.19)); }
+.hmd-hero-grid { position: absolute; inset: 0; z-index: 1; display: grid; grid-template-columns: repeat(3,1fr); pointer-events: none; }
+.hmd-hero-grid span { border-right: 1px solid rgba(255,255,255,.13); }
+.hmd-hero-copy { position: absolute; z-index: 5; left: clamp(22px,5.4vw,102px); right: clamp(22px,5.4vw,102px); top: 25%; }
+.hmd-hero-eyebrow { font-size: .64rem; letter-spacing: .16em; font-weight: 700; color: rgba(255,255,255,.82); margin: 0 0 clamp(28px, 4.5vh, 60px); }
+.hmd-hero-eyebrow span { display: inline-block; margin: 0 10px; color: var(--champagne); }
+.hmd-hero h1 { font-size: clamp(5.7rem, 11.5vw, 13.6rem); line-height: .79; font-weight: 500; letter-spacing: -.108em; margin: 0; white-space: nowrap; }
+.hmd-hero h1 i { font-family: "Instrument Serif", Georgia, serif; text-transform: none; font-weight: 400; letter-spacing: -.082em; }
+.hmd-hero-line-2 { display: block; padding-left: clamp(0px,7vw,135px); }
+.hmd-hero-bottom { display: flex; align-items: end; justify-content: space-between; margin-top: clamp(30px,5.8vh,70px); }
+.hmd-hero-bottom p { margin: 0; font-size: clamp(.86rem,1.25vw,1.2rem); line-height: 1.6; color: rgba(255,255,255,.86); }
+.hmd-hero-edge { position: absolute; z-index: 6; right: 18px; top: 50%; writing-mode: vertical-rl; font-size: .53rem; letter-spacing: .24em; color: rgba(255,255,255,.55); }
+.hmd-hero-scroll { position: absolute; z-index: 6; bottom: 32px; left: clamp(22px,5.4vw,102px); color: #fff; display: flex; gap: 14px; align-items: center; font-size: .59rem; letter-spacing: .18em; }
+.hmd-hero-scroll svg { animation: hmd-arrow-dip 2.4s ease-in-out infinite; }
+.hmd-hero-vein { color: #fff9e8; position: absolute; right: 4%; top: 15%; height: 65%; width: 22%; z-index: 2; pointer-events: none; opacity: .4; }
+@keyframes hmd-arrow-dip { 50% { transform: translateY(7px); } }
+
+/* Interstitial typography. */
+.hmd-marquee { height: clamp(110px, 12vw, 190px); background: #d1c5b6; display: flex; align-items: center; overflow: hidden; border-bottom: 1px solid #c6bbad; }
+.hmd-marquee-track { display: flex; width: max-content; align-items: center; gap: 0; animation: hmd-marquee 38s linear infinite; }
+.hmd-marquee-track span { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: clamp(3.9rem, 7.8vw, 9rem); line-height: 1; white-space: nowrap; color: #2a2b26; padding-right: 35px; }
+.hmd-marquee-track b { font-size: .6em; color: #ae8962; font-family: "DM Sans",sans-serif; font-style: normal; font-weight: 400; padding: 0 .27em; }
+@keyframes hmd-marquee { to { transform: translateX(-50%); } }
+
+/* Chapter 02 — typography + floating photography. */
+.hmd-manifesto { background: var(--bone); padding: clamp(100px, 11vw, 205px) 0 clamp(120px, 13vw, 230px); }
+.hmd-manifesto-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: clamp(55px, 8vw, 125px); }
+.hmd-manifesto-top > span:last-child { font-size: .58rem; letter-spacing: .16em; color: #999488; }
+.hmd-manifesto-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 6vw; align-items: start; }
+.hmd-manifesto-head .hmd-display { font-size: clamp(4rem, 7.8vw, 9.6rem); }
+.hmd-manifesto-head > p { max-width: 380px; font-size: 1.09rem; line-height: 1.75; margin: 55px 0 25px 8%; color: #55574f; }
+.hmd-manifesto-head > .hmd-round-link { margin-left: 8%; }
+.hmd-manifesto-photo-frame { width: 100%; margin-top: 14%; position: relative; aspect-ratio: 4/5.15; overflow: visible; }
+.hmd-manifesto-photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(.65); }
+.hmd-photo-index { position: absolute; bottom: -27px; left: 0; font-size: .55rem; letter-spacing: .12em; color: #78796f; }
+.hmd-orbit-stamp { width: 134px; height: 134px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.65); border-radius: 50%; position: absolute; right: -48px; top: -48px; background: #dac4aa; color: #4a3b2c; font-size: 10px; letter-spacing: .12em; text-align: center; padding: 10px; }
+
+/* Chapter 03 — large typographic link rows. */
+.hmd-services { background: #1a1d18; color: #f3f1e9; padding: clamp(110px, 10vw, 180px) 0 clamp(90px, 9vw, 150px); }
+.hmd-section-intro { display: flex; justify-content: space-between; align-items: end; gap: 60px; margin-bottom: clamp(56px,7vw,125px); }
+.hmd-section-intro h2 { margin-top: 38px; font-size: clamp(4.3rem,7.5vw,9.7rem); }
+.hmd-section-intro > p { max-width: 280px; color: #aeb0a7; line-height: 1.7; font-size: .95rem; margin: 0 0 11px; }
+.hmd-service-list { border-top: 1px solid rgba(255,255,255,.25); }
+.hmd-service-row { display: grid; grid-template-columns: 105px minmax(0,1fr) 255px 60px; gap: 18px; align-items: center; padding: clamp(30px, 3vw, 56px) 0; border-bottom: 1px solid rgba(255,255,255,.25); color: #f2f0e7; transition: background .3s, padding .45s; }
+.hmd-service-row:hover { padding-left: 16px; padding-right: 16px; background: #282c25; }
+.hmd-service-no { font-size: .62rem; letter-spacing: .14em; color: #a4a99b; align-self: start; margin-top: 17px; }
+.hmd-service-row h3 { font-size: clamp(2rem,3.5vw,4.1rem); letter-spacing: -.068em; line-height: 1.1; font-weight: 500; margin: 0; transition: color .35s; }
+.hmd-service-row:hover h3 { color: #d9c09e; }
+.hmd-service-row p { margin: 13px 0 0; max-width: 540px; color: #9c9f95; line-height: 1.6; font-size: .85rem; }
+.hmd-service-detail { color: #aaa99e; font-size: .7rem; line-height: 1.6; letter-spacing: .02em; }
+.hmd-service-arrow { display: grid; place-items: center; border-radius: 50%; width: 56px; height: 56px; border: 1px solid rgba(255,255,255,.4); transition: transform .45s, background .45s, color .45s; }
+.hmd-service-row:hover .hmd-service-arrow { transform: rotate(45deg); color: #171a15; background: #d7c3a7; }
+.hmd-services-bottom { margin-top: 60px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.hmd-services-bottom > span { color: #74796f; letter-spacing: .15em; font-size: .61rem; }
+
+/* Chapter 04 — interactive SVG vein / CSS stone studies. */
+.hmd-materials { background: #eeebe3; padding: clamp(110px,10vw,180px) 0 110px; }
+.hmd-materials-head { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 70px; }
+.hmd-materials-head h2 { margin-top: 38px; font-size: clamp(4.4rem, 8.3vw, 10rem); }
+.hmd-materials-head > p { max-width: 280px; color: #6c6c64; line-height: 1.7; margin-bottom: 12px; font-size: .94rem; }
+.hmd-material-stage { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(350px,.9fr); gap: clamp(45px, 7vw, 120px); align-items: center; }
+.hmd-material-visual { aspect-ratio: 1/.92; position: relative; overflow: hidden; background: #c9c5bd; box-shadow: 14px 17px 0 #e1ddd5, 30px 34px 65px rgba(37,34,31,.09); }
+.hmd-slab { position: absolute; inset: 0; isolation: isolate; overflow: hidden; }
+.hmd-slab::before { position: absolute; content: ""; inset: 0; z-index: -1; opacity: .65; mix-blend-mode: multiply; background: repeating-linear-gradient(102deg,transparent 0 9px,rgba(0,0,0,.012) 10px 11px,transparent 12px 41px); }
+.hmd-slab-quartz { background: radial-gradient(ellipse at 30% 22%, #faf9f3, transparent 63%), radial-gradient(ellipse at 75% 76%,#dedad2, transparent 60%), #e8e5df; }
+.hmd-slab-marble { background: radial-gradient(ellipse at 8% 14%,#fafbf6, transparent 60%),radial-gradient(ellipse at 76% 76%,#b2b9b3,transparent 64%),linear-gradient(110deg,#cfd6d0,#f1f0e9 42%,#bfc8c2 90%); }
+.hmd-slab-quartzite { background: radial-gradient(ellipse at 85% 0%,#cdb7a0,transparent 53%),repeating-linear-gradient(160deg,#797a70 0%,#a6a79c 11%,#cfc9b5 17%,#8c9290 22%,#555a58 30%,#b9b6a8 38%); }
+.hmd-slab-granite { background: radial-gradient(circle at 10% 14%,#969994 1px,transparent 2px),radial-gradient(circle at 65% 85%,#bab9a9 1px,transparent 2px),radial-gradient(circle at 35% 60%,#4e514d 2px,transparent 3px),linear-gradient(50deg,#282b28,#5d625d 50%,#242723); background-size: 26px 31px, 23px 26px, 15px 19px, 100%; }
+.hmd-slab-veins { position: absolute; width: 118%; height: 120%; left: -7%; top: -10%; fill: none; stroke: rgba(63,71,70,.37); stroke-width: 9; filter: blur(1.8px); transform: rotate(-12deg); }
+.hmd-slab-veins path:nth-child(even) { stroke: rgba(228,218,201,.55); stroke-width: 3; }
+.hmd-slab-quartz .hmd-slab-veins { stroke: rgba(146,144,139,.2); filter: blur(10px); }
+.hmd-slab-quartzite .hmd-slab-veins { stroke: rgba(33,38,40,.45); stroke-width: 23; filter: blur(12px); }
+.hmd-slab-granite .hmd-slab-veins { display: none; }
+.hmd-slab-sheen { position: absolute; inset: 0; background: linear-gradient(114deg,transparent 8%,rgba(255,255,255,.15) 45%,transparent 50%); mix-blend-mode: screen; }
+.hmd-slab-index { position: absolute; z-index: 3; left: 25px; top: 28px; padding: 9px 12px; background: rgba(255,255,255,.68); font-size: .57rem; font-weight: 700; letter-spacing: .17em; color: #343934; }
+.hmd-slab-concept { position: absolute; z-index: 3; left: 23px; bottom: 22px; font-size: .53rem; font-weight: 700; letter-spacing: .12em; background: rgba(245,244,237,.78); padding: 8px 10px; color: #333; }
+.hmd-material-controls { padding: 15px 0; }
+.hmd-material-count { font-size: .61rem; color: #88847b; letter-spacing: .17em; margin-bottom: 31px; }
+.hmd-material-options { border-top: 1px solid #bab8af; }
+.hmd-material-option { padding: clamp(17px,1.9vw,27px) 0; border: 0; border-bottom: 1px solid #bdbbb4; display: flex; align-items: center; width: 100%; gap: 23px; text-align: left; background: transparent; cursor: pointer; color: #74776e; font-size: clamp(1.7rem, 2.6vw, 3rem); letter-spacing: -.07em; transition: color .25s, padding .3s; }
+.hmd-material-option:hover { padding-left: 10px; }
+.hmd-material-option.is-selected { color: #151913; }
+.hmd-material-option-num { color: #97978b; font-size: .61rem; letter-spacing: 0; min-width: 22px; align-self: baseline; }
+.hmd-material-option svg { margin-left: auto; transition: transform .25s; opacity: 0; }
+.hmd-material-option.is-selected svg { opacity: 1; transform: rotate(45deg); }
+.hmd-material-description { min-height: 187px; margin-top: 36px; }
+.hmd-material-description > span { color: #806e5a; text-transform: uppercase; letter-spacing: .14em; font-size: .59rem; font-weight: 700; }
+.hmd-material-description h3 { margin: 8px 0 12px; font-size: clamp(1.5rem, 2vw, 2.25rem); letter-spacing: -.04em; font-weight: 500; }
+.hmd-material-description p { max-width: 370px; margin: 0 0 15px; color: #62645a; line-height: 1.66; font-size: .86rem; }
+.hmd-material-description small { color: #949186; letter-spacing: .1em; font-size: .5rem; }
+.hmd-materials-footnote { margin-top: 75px; border-top: 1px solid #c4c2b9; padding-top: 22px; display: flex; justify-content: space-between; gap: 20px; font-size: .6rem; letter-spacing: .12em; color: #8d8e85; }
+.hmd-materials-footnote a { color: #242823; display: inline-flex; align-items: center; gap: 10px; }
+
+/* Chapter 05 — 400vw horizontal exhibition controlled by vertical scroll. */
+.hmd-lookbook { position: relative; height: 390vh; background: #11130f; color: white; }
+.hmd-look-sticky { position: sticky; top: 0; height: 100svh; min-height: 0; overflow: hidden; }
+.hmd-look-header { position: absolute; z-index: 5; top: 90px; padding: 0 clamp(22px,5.4vw,102px); left: 0; right: 0; display: flex; justify-content: space-between; font-size: .59rem; letter-spacing: .16em; font-weight: 700; }
+.hmd-look-header > span { display: inline-flex; align-items: center; gap: 15px; }
+.hmd-look-progress { position: absolute; left: clamp(22px,5.4vw,102px); right: clamp(22px,5.4vw,102px); bottom: -20px; height: 2px; background: #dac5a9; transform-origin: left; }
+.hmd-look-track { display: flex; width: 400vw; height: 100%; will-change: transform; }
+.hmd-look-panel { position: relative; height: 100%; width: 100vw; flex: 0 0 100vw; overflow: hidden; isolation: isolate; }
+.hmd-look-image { position: absolute; z-index: -1; inset: 0; overflow: hidden; }
+.hmd-look-image img { width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.67) brightness(.73); transition: transform 1.35s cubic-bezier(.2,1,.22,1), filter 1.2s; }
+.hmd-look-panel:hover .hmd-look-image img { transform: scale(1.055); filter: saturate(.8) brightness(.81); }
+.hmd-look-gradient { position: absolute; inset: 0; background: linear-gradient(90deg,rgba(0,0,0,.46),rgba(0,0,0,.08) 80%),linear-gradient(0deg,rgba(0,0,0,.56),transparent 50%,rgba(0,0,0,.26)); }
+.hmd-look-content { position: relative; z-index: 2; width: 100%; height: 100%; padding: clamp(160px,19vh,260px) clamp(22px,5.4vw,102px) clamp(66px,9vh,115px); display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; }
+.hmd-look-kicker { font-size: .7rem; letter-spacing: .17em; font-weight: 700; color: #f7f3ed; }
+.hmd-look-content h3 { margin: 0; max-width: 900px; font-size: clamp(6rem, 10.5vw, 13.5rem); letter-spacing: -.093em; line-height: .84; font-weight: 500; text-transform: uppercase; }
+.hmd-look-content h3 span { display: block; }
+.hmd-look-italic { font-family: "Instrument Serif", Georgia,serif; font-style: italic; font-weight: 400; text-transform: none; }
+.hmd-look-bottom { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.hmd-look-bottom > span { font-size: .65rem; letter-spacing: .17em; color: #e5e0d5; }
+.hmd-look-bottom a { display: inline-flex; gap: 12px; align-items: center; font-size: .65rem; letter-spacing: .1em; color: #fff; pointer-events: auto; border-bottom: 1px solid currentColor; padding-bottom: 9px; }
+.hmd-look-watermark { position: absolute; right: -2.8vw; bottom: -9vw; line-height: 1; font-size: 30vw; font-weight: 700; letter-spacing: -.09em; opacity: .08; pointer-events: none; }
+.hmd-cursor-view { display: flex; align-items: center; justify-content: center; gap: 4px; pointer-events: none; position: absolute; top: -50px; left: -60px; z-index: 5; width: 120px; height: 120px; background: #d2b99a; color: #222620; border-radius: 50%; font-weight: 700; font-size: .63rem; letter-spacing: .08em; }
+.hmd-look-disclaimer { position: absolute; bottom: 19px; right: 2vw; font-size: .5rem; letter-spacing: .1em; color: rgba(255,255,255,.75); text-align: right; z-index: 5; }
+
+/* Chapter 06 — illuminated path. */
+.hmd-process { padding: clamp(105px, 12vw, 210px) 0 clamp(105px, 12vw, 210px); background: #e5e1d6; color: #151913; }
+.hmd-process-header > p { color: #77786d; }
+.hmd-process-timeline { position: relative; margin-top: 60px; }
+.hmd-process-line { position: absolute; left: clamp(31px,6vw,115px); top: 0; bottom: 0; width: 1px; background: #b7b4aa; }
+.hmd-process-line > div { width: 2px; height: 100%; background: #9d7857; transform-origin: top; }
+.hmd-process-step { margin-left: clamp(90px, 17vw, 270px); display: grid; grid-template-columns: 70px 1fr 50px; gap: 20px; align-items: start; padding: clamp(38px,5vw,80px) 0; border-bottom: 1px solid #bebbb0; }
+.hmd-process-step > span { color: #9a8167; font-size: .74rem; letter-spacing: .12em; margin-top: 15px; }
+.hmd-process-step h3 { margin: 0; font-weight: 500; font-size: clamp(3.4rem, 7vw, 8rem); letter-spacing: -.09em; line-height: .92; }
+.hmd-process-step p { max-width: 400px; line-height: 1.7; color: #666a61; font-size: .91rem; margin: 23px 0 0; }
+.hmd-process-step svg { margin-top: 10px; }
+
+/* Chapter 07 — immersive invitation. */
+.hmd-closing { height: min(920px,94svh); min-height: 620px; position: relative; overflow: hidden; background: #20231d; color: #fff; }
+.hmd-closing-bg { position: absolute; inset: 0; }
+.hmd-closing-bg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.58) brightness(.68); }
+.hmd-closing-overlay { position: absolute; inset: 0; background: rgba(10,13,10,.44); }
+.hmd-closing-copy { position: relative; z-index: 2; display: flex; height: 100%; flex-direction: column; justify-content: center; align-items: flex-start; }
+.hmd-closing-copy h2 { font-size: clamp(5rem, 10.2vw, 12.3rem); letter-spacing: -.095em; font-weight: 500; line-height: .86; margin: clamp(30px, 6vh, 70px) 0 28px; }
+.hmd-closing-copy p { margin: 0 0 25px; font-size: clamp(1rem,1.4vw,1.4rem); color: #e0ddd3; line-height: 1.6; }
+.hmd-footer { background: #121612; color: #e7e4da; padding: 80px 0 30px; overflow: hidden; }
+.hmd-footer-top { display: flex; justify-content: space-between; align-items: start; }
+.hmd-footer-top p { margin: 0; font-size: .75rem; letter-spacing: .11em; line-height: 1.8; }
+.hmd-footer-top > a { display: inline-flex; gap: 8px; align-items: center; color: #d3ba98; font-size: .75rem; letter-spacing: .14em; }
+.hmd-footer-wordmark { display: block; margin: 60px 0 65px; color: #e3dfd3; font-weight: 700; font-size: clamp(7rem,17.9vw,25rem); letter-spacing: -.11em; line-height: .9; white-space: nowrap; }
+.hmd-footer-wordmark span { font-family: "Instrument Serif",Georgia,serif; font-weight: 400; font-style: italic; }
+.hmd-footer-bottom { border-top: 1px solid #444840; display: flex; justify-content: space-between; align-items: center; padding-top: 28px; font-size: .6rem; letter-spacing: .14em; color: #aaa99b; }
+.hmd-footer-bottom > a { display: inline-flex; align-items: center; gap: 8px; color: #e7e4da; }
+
+/* Interior routes, about, form. */
+.hmd-interior-hero { padding: 185px 0 110px; background: #171b17; color: #f3f0e7; min-height: 550px; position: relative; }
+.hmd-interior-hero h1 { font-size: clamp(5rem,10vw,12rem); margin: 48px 0 35px; }
+.hmd-interior-hero p { max-width: 500px; color: #b5b4aa; line-height: 1.8; font-size: 1.1rem; }
+.hmd-interior-number { position: absolute; right: clamp(20px,5vw,90px); bottom: 50px; letter-spacing: .18em; font-size: .6rem; color: #8b8d81; }
+.hmd-materials-full { padding: 110px 0 180px; }
+.hmd-about-story { background: #eae7dc; padding: 170px 0; }
+.hmd-about-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 60px; }
+.hmd-about-story h2 { margin: 0 0 50px; font-size: clamp(4.5rem,8.6vw,11rem); line-height: .86; font-weight: 500; letter-spacing: -.09em; }
+.hmd-about-story p { font-size: clamp(1rem,1.4vw,1.3rem); max-width: 660px; color: #66685f; line-height: 1.8; margin: 0 0 24px; }
+.hmd-about-story .hmd-round-link { margin-top: 35px; }
+.hmd-contact-area { background: #eae6dd; padding: 115px 0 170px; }
+.hmd-contact-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 8vw; align-items: start; }
+.hmd-contact-aside { position: sticky; top: 120px; }
+.hmd-contact-aside h2 { font-size: clamp(3.2rem, 5vw, 6.5rem); line-height: .92; letter-spacing: -.085em; margin: 35px 0 25px; font-weight: 500; }
+.hmd-contact-aside h2 i { font-family: "Instrument Serif", serif; font-weight: 400; }
+.hmd-contact-aside > p { max-width: 350px; color: #6d7067; font-size: 1rem; line-height: 1.75; }
+.hmd-contact-aside-note { margin-top: 90px; border-top: 1px solid #b9b9ab; padding-top: 25px; line-height: 2.1; font-size: .64rem; letter-spacing: .13em; color: #827965; }
+.hmd-contact-form { width: 100%; padding: 42px; border: 1px solid #babbaf; background: #f3f0e9; }
+.hmd-form-intro { display: flex; justify-content: space-between; align-items: center; font-size: .65rem; letter-spacing: .14em; margin: 0 0 43px; font-weight: 700; }
+.hmd-form-intro span { font-size: 20px; color: #b38d63; }
+.hmd-contact-form label { display: block; font-size: .63rem; letter-spacing: .09em; text-transform: uppercase; font-weight: 700; color: #595d54; margin-bottom: 31px; }
+.hmd-contact-form input, .hmd-contact-form select, .hmd-contact-form textarea { display: block; background: transparent; width: 100%; padding: 16px 0; border: 0; border-bottom: 1px solid #adaea4; border-radius: 0; outline-offset: 2px; color: #232821; font-size: .87rem; letter-spacing: normal; text-transform: none; margin-top: 6px; resize: vertical; }
+.hmd-contact-form input::placeholder, .hmd-contact-form textarea::placeholder { color: #898b82; }
+.hmd-contact-form input:focus, .hmd-contact-form select:focus, .hmd-contact-form textarea:focus { border-bottom-color: #191d17; }
+.hmd-form-two { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.hmd-submit { border: 0; background: #1a1e19; color: #f6f2e9; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 25px; width: 100%; cursor: pointer; font-weight: 700; font-size: .67rem; letter-spacing: .14em; transition: background .2s; }
+.hmd-submit:hover { background: #63513d; }
+.hmd-form-feedback { color: #326647; margin-top: 20px; line-height: 1.6; font-size: .83rem; }
+.hmd-copy-fallback { margin-top: 22px; padding: 18px; background: #e5e1d7; line-height: 1.6; font-size: .85rem; }
+.hmd-copy-fallback textarea { width: 100%; min-height: 180px; }
+.hmd-form-disclaimer { margin: 21px 0 0; color: #86877f; font-size: .7rem; line-height: 1.65; }
+
+@media (max-width: 1250px) {
+  .hmd-nav-links { gap: 15px; }
+  .hmd-nav-links a { font-size: .65rem; }
+  .hmd-service-row { grid-template-columns: 65px minmax(0,1fr) 155px 48px; }
+  .hmd-service-arrow { width: 48px; height: 48px; }
+  .hmd-manifesto-head .hmd-display { font-size: 7.9vw; }
+}
+@media (max-width: 1050px) {
+  .hmd-nav-links, .hmd-nav-quote { display: none; }
+  .hmd-menu-toggle { display: block; z-index: 76; }
+  .hmd-nav { min-height: 75px; }
+  .hmd-hero h1 { font-size: 12vw; }
+  .hmd-hero-line-2 { padding-left: 0; }
+  .hmd-manifesto-grid { gap: 45px; }
+  .hmd-material-stage { grid-template-columns: minmax(0,1fr) minmax(290px,.9fr); gap: 42px; }
+  .hmd-material-description { min-height: 220px; }
+  .hmd-footer-wordmark { font-size: 16.4vw; }
+}
+@media (max-width: 900px) {
+  .hmd-lookbook { height: auto; }
+  .hmd-look-sticky { position: relative; height: auto; min-height: 0; }
+  .hmd-look-track { display: block; width: 100%; height: auto; transform: none !important; }
+  .hmd-look-panel { width: 100%; height: 72svh; min-height: 530px; }
+  .hmd-look-header { position: relative; top: 0; padding: 40px 5.4vw 23px; }
+  .hmd-look-header .hmd-look-progress { display: none; }
+  .hmd-look-content { padding-top: 85px; }
+  .hmd-look-content h3 { font-size: clamp(5.2rem,11.5vw,9rem); }
+  .hmd-look-disclaimer { position: relative; bottom: auto; right: auto; display: block; background: #10120e; padding: 17px 5.4vw; text-align: left; }
+  .hmd-manifesto-grid { grid-template-columns: 1fr .85fr; }
+  .hmd-manifesto-head > p { margin-left: 0; }
+  .hmd-manifesto-head > .hmd-round-link { margin-left: 0; }
+  .hmd-service-detail { display: none; }
+  .hmd-service-row { grid-template-columns: 50px 1fr 50px; }
+  .hmd-section-intro > p { max-width: 235px; }
+  .hmd-process-step { margin-left: 100px; grid-template-columns: 47px 1fr 30px; }
+  .hmd-contact-grid { gap: 35px; }
+  .hmd-contact-form { padding: 28px; }
+}
+@media (max-width: 680px) {
+  .hmd-container { padding-left: 22px; padding-right: 22px; }
+  .hmd-nav { padding-left: 22px; padding-right: 22px; }
+  .hmd-logo { font-size: 1.12rem; }
+  .hmd-logo-symbol { width: 25px; transform: scale(.9) skewY(-8deg); }
+  .hmd-hero { height: 100svh; min-height: 590px; max-height: 950px; }
+  .hmd-hero-image img { object-position: 53% center; }
+  .hmd-hero-shade { background: linear-gradient(90deg,rgba(0,0,0,.51),rgba(0,0,0,.26)), linear-gradient(0deg,rgba(0,0,0,.54),transparent 65%); }
+  .hmd-hero-copy { top: 28%; left: 22px; right: 22px; }
+  .hmd-hero-eyebrow { font-size: .52rem; line-height: 1.7; letter-spacing: .11em; }
+  .hmd-hero-eyebrow span { margin: 0 4px; }
+  .hmd-hero h1 { font-size: clamp(4.2rem,14vw,7rem); white-space: normal; letter-spacing: -.09em; }
+  .hmd-hero-line-2 { padding-left: 0; }
+  .hmd-hero-bottom { flex-direction: column; align-items: flex-start; gap: 30px; }
+  .hmd-hero-bottom p { font-size: .9rem; }
+  .hmd-hero-edge { display: none; }
+  .hmd-hero-vein { display: none; }
+  .hmd-hero-scroll { bottom: 24px; left: 22px; }
+  .hmd-marquee { height: 95px; }
+  .hmd-marquee-track span { font-size: 4rem; }
+  .hmd-manifesto { padding: 105px 0 95px; }
+  .hmd-manifesto-top { margin-bottom: 55px; }
+  .hmd-manifesto-top > span:last-child { display: none; }
+  .hmd-manifesto-grid { display: block; }
+  .hmd-manifesto-head .hmd-display { font-size: clamp(3.8rem,12.8vw,6rem); }
+  .hmd-manifesto-head > p { margin: 32px 0 24px; font-size: 1rem; }
+  .hmd-manifesto-photo-frame { width: 80%; margin: 75px auto 45px; }
+  .hmd-orbit-stamp { width: 92px; height: 92px; font-size: .45rem; right: -35px; top: -31px; }
+  .hmd-services, .hmd-materials, .hmd-process { padding: 105px 0 95px; }
+  .hmd-section-intro, .hmd-materials-head { display: block; margin-bottom: 55px; }
+  .hmd-section-intro h2, .hmd-materials-head h2 { font-size: clamp(3.7rem,12.4vw,6.5rem); margin-top: 30px; }
+  .hmd-section-intro > p, .hmd-materials-head > p { max-width: 340px; margin-top: 30px; line-height: 1.7; }
+  .hmd-service-row { grid-template-columns: 33px 1fr 39px; gap: 10px; padding: 28px 0; }
+  .hmd-service-no { font-size: .56rem; margin-top: 10px; }
+  .hmd-service-row h3 { font-size: clamp(1.9rem,7vw,3.2rem); }
+  .hmd-service-row p { font-size: .75rem; }
+  .hmd-service-arrow { width: 38px; height: 38px; }
+  .hmd-services-bottom { align-items: flex-start; }
+  .hmd-services-bottom > span { display: none; }
+  .hmd-material-stage { display: block; }
+  .hmd-material-visual { aspect-ratio: 1/1.04; max-width: 580px; margin: 0 auto; }
+  .hmd-material-controls { padding-top: 63px; }
+  .hmd-material-description { min-height: 170px; }
+  .hmd-materials-footnote { line-height: 1.8; display: block; margin-top: 48px; }
+  .hmd-materials-footnote a { display: flex; margin-top: 17px; }
+  .hmd-look-header { padding: 31px 22px 23px; gap: 15px; }
+  .hmd-look-header > span { font-size: .54rem; }
+  .hmd-look-panel { height: 74svh; min-height: 510px; }
+  .hmd-look-content { padding: 105px 22px 60px; }
+  .hmd-look-content h3 { font-size: clamp(4.4rem, 13vw,7.3rem); }
+  .hmd-look-bottom { align-items: flex-start; gap: 15px; }
+  .hmd-look-bottom > span { max-width: 90px; line-height: 1.4; }
+  .hmd-look-bottom a { font-size: .55rem; }
+  .hmd-look-disclaimer { padding-left: 22px; }
+  .hmd-cursor-view { display: none; }
+  .hmd-process-line { left: 8px; }
+  .hmd-process-step { margin-left: 34px; grid-template-columns: 27px 1fr 23px; gap: 8px; }
+  .hmd-process-step > span { font-size: .59rem; }
+  .hmd-process-step h3 { font-size: clamp(3rem,10vw,5rem); }
+  .hmd-process-step p { font-size: .82rem; margin-top: 16px; }
+  .hmd-closing { min-height: 600px; height: 81svh; }
+  .hmd-closing-copy h2 { font-size: clamp(4.4rem,14vw,7.5rem); }
+  .hmd-closing-copy p { font-size: .93rem; }
+  .hmd-footer { padding-top: 65px; }
+  .hmd-footer-top { display: block; }
+  .hmd-footer-top > a { margin-top: 25px; }
+  .hmd-footer-wordmark { font-size: 17.2vw; margin: 75px 0; }
+  .hmd-footer-bottom { flex-wrap: wrap; gap: 17px; line-height: 1.5; }
+  .hmd-footer-bottom > span:nth-child(2) { display: none; }
+  .hmd-interior-hero { min-height: 0; padding: 170px 0 90px; }
+  .hmd-interior-hero h1 { font-size: clamp(4.2rem, 13.5vw, 7rem); }
+  .hmd-interior-hero p { font-size: .97rem; }
+  .hmd-interior-number { display: none; }
+  .hmd-about-story { padding: 100px 0; }
+  .hmd-about-grid { display: block; }
+  .hmd-about-grid > .hmd-overline { margin-bottom: 35px; }
+  .hmd-about-story h2 { font-size: clamp(4rem,13vw,6.7rem); }
+  .hmd-contact-area { padding: 85px 0 120px; }
+  .hmd-contact-grid { display: block; }
+  .hmd-contact-aside { position: static; margin-bottom: 55px; }
+  .hmd-contact-aside-note { margin-top: 30px; }
+  .hmd-contact-form { padding: 25px 21px; }
+  .hmd-form-two { display: block; }
+  .hmd-menu-inner { padding: 100px 22px 24px; }
+  .hmd-menu-inner > div a { font-size: clamp(2.4rem,9vw,4.5rem); }
+}
+@media (max-width: 360px) {
+  .hmd-hero h1 { font-size: 13vw; }
+  .hmd-hero-copy { top: 30%; }
+  .hmd-look-content h3 { font-size: 12vw; }
+  .hmd-round-icon { width: 50px; height: 50px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hmd-lookbook { height: auto; }
+  .hmd-look-sticky { position: relative; height: auto; min-height: 0; }
+  .hmd-look-track { display: block; width: 100%; height: auto; }
+  .hmd-look-panel { display: block; width: 100%; height: 76vh; min-height: 480px; }
+  .hmd-look-header { position: relative; top: auto; padding: 40px 5.4vw 25px; }
+  .hmd-look-disclaimer { position: relative; bottom: auto; right: auto; display: block; padding: 20px 5.4vw; background: #11130f; }
+  .hmd-site *, .hmd-site *::before, .hmd-site *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .hmd-marquee-track { animation: none; }
+  .hmd-look-track { transform: none !important; }
+}

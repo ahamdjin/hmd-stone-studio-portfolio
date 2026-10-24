@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="HMD Stone">
+  <rect width="64" height="64" rx="12" fill="#171b17"/>
+  <path d="M12 43V20l11-4v27H12Z" fill="#D6C4AA"/>
+  <path d="M27 46V13l11-3v36H27Z" fill="#F2EBDD"/>
+  <path d="M42 42V18l10-5v29H42Z" fill="#AE8E68"/>
+</svg>

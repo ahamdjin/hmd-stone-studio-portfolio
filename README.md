@@ -1,91 +1,29 @@
-# Architecture & Interior Design Studio — website template
+# HMD Stone — cinematic countertop website
 
-A portfolio site for a studio that does both the buildings and the rooms inside
-them. Five pages: the work (a full-bleed project grid), a project case study, an
-about page, a team page, and an enquiry form.
+React + TypeScript + Vite + Framer Motion. This project replaces the Lovable architecture-portfolio demo with a design-led, animated experience for **HMD Stone**, a countertop service business.
 
-The hero and the card headlines both show a picture through the letters. The hero
-draws video frames onto a canvas; the cards use a still photo with
-`background-clip: text`, which needs no JavaScript. Both fall back to a plain
-headline if the browser cannot do it, and both hold still for anyone who asks for
-reduced motion.
+## Current pages
+- Home — editorial intro, parallax image hero, ticker, manifesto, services, interactive material library, scroll-controlled horizontal inspiration exhibition, process timeline, conversion call to action.
+- Services — installation and surface categories.
+- Materials — interactive quartz, marble, quartzite, and granite **illustrative** studies.
+- About — brand positioning without fictional staff, reviews, address, project counts, or years in business.
+- Contact — a useful project-brief composer (copies to clipboard; **does not submit**).
 
-Project content lives in one file: `src/data/projects.ts`. The page gutter is one
-CSS class, `.site-shell`, shared by the nav and every page so their left and right
-edges line up with the card text.
+## Animation and accessibility
+- Framer Motion cinematic transitions, masks, spring-based magnetic CTA, clip reveal typography, scroll-linked images and progress.
+- Sticky horizontal gallery on desktop; natural vertical gallery on narrow displays.
+- Simplified experiences when the visitor enables *Reduce motion*.
+- Mobile menu supports Escape, and auto-closes when navigating.
 
-## Project info
+## IMPORTANT: temporary visuals
+The photos in src/hmd/content.ts (IMAGES) are external Unsplash art-direction placeholders, **not HMD Stone completed jobs**. The gallery intentionally says "INSPIRATION IMAGES — NOT HMD STONE COMPLETED PROJECTS". Replace every entry in that single object after generating or receiving licensed final imagery. The material studies are CSS/SVG **illustrations**, not photographed product slabs, and should not be represented as exact product matches.
 
-**URL**: https://lovable.dev/projects/ed798653-3aab-4b89-bc12-418b54b0a6db
+## Go-live checklist
+1. Replace IMAGES in src/hmd/content.ts with approved originals stored in /public/images/ or an image CDN.
+2. Confirm accurate business address, service areas, phone, email, business hours, services, and actual project images with HMD Stone. Do not add unverified claims.
+3. Connect the contact form to a verified email or CRM endpoint (e.g. GoHighLevel), protect against spam, give real delivery/error feedback, add data-handling notice. Current form only copies a project brief.
+4. Replace the concept material swatches with approved samples if representing specific products, and add care notes.
+5. Add legal/privacy pages and update SEO metadata and social share image after final photography.
+6. Run npm ci && npm run build, then test with real mobile devices, keyboard, and reduced-motion mode.
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/ed798653-3aab-4b89-bc12-418b54b0a6db) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/ed798653-3aab-4b89-bc12-418b54b0a6db) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
-
-# ./tailwind-plus folder:
-
-The tailwind-plus folder contains tailwind components and themes to be used as inspiration for the project. DO NOT REMOVE THE FOLDER UNLESS SPECIFICALLY TOLD TO DO SO
+The old Lovable template components remain in the repository for reference but are **not used** by the new route tree. Remove them in a later cleanup pass after confirming the new design.
