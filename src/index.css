@@ -1,0 +1,491 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(240 10% 3.9%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(240 10% 3.9%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(240 10% 3.9%);
+  --primary: hsl(240 5.9% 10%);
+  --primary-foreground: hsl(0 0% 98%);
+  --secondary: hsl(240 4.8% 95.9%);
+  --secondary-foreground: hsl(240 5.9% 10%);
+  --muted: hsl(240 4.8% 95.9%);
+  --muted-foreground: hsl(240 3.8% 46.1%);
+  --accent: hsl(240 4.8% 95.9%);
+  --accent-foreground: hsl(240 5.9% 10%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(240 5.9% 90%);
+  --input: hsl(240 5.9% 90%);
+  --ring: hsl(240 5.9% 10%);
+  --radius: 0.5rem;
+  --sidebar-background: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(240 5.3% 26.1%);
+  --sidebar-primary: hsl(240 5.9% 10%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: hsl(220 13% 91%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+  /* Shugar Design System Variables */
+  --context-card-border: hsla(0, 0%, 92%, 1);
+  --ds-red-800: oklch(58.19% 0.2482 25.15);
+  --ds-red-900: oklch(54.99% 0.232 25.29);
+  --ds-amber-800: oklch(77.21% 0.1991 64.28);
+  --ds-amber-850: hsl(33, 96%, 42%);
+  --ds-gray-100: hsla(0, 0%, 95%, 1);
+  --ds-gray-400: hsla(0, 0%, 92%, 1);
+  --ds-gray-700: hsla(0, 0%, 56%, 1);
+  --ds-gray-1000: hsla(0, 0%, 9%, 1);
+  --ds-gray-1000-h: hsl(0, 0%, 22%);
+  --ds-gray-alpha-200: hsla(0, 0%, 0%, 0.08);
+  --ds-gray-alpha-400: hsla(0, 0%, 0%, 0.08);
+  --ds-background-100: hsla(0, 0%, 100%, 1);
+  --ds-focus-color: var(--ring);
+  --ds-focus-ring: 0 0 0 2px var(--ds-background-100), 0 0 0 4px var(--ds-focus-color);
+  --ds-shadow-border: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  --ds-shadow-small: 0px 2px 2px rgba(0, 0, 0, 0.04);
+  --ds-shadow-border-small: var(--ds-shadow-border), var(--ds-shadow-small);
+}
+
+.dark {
+  --background: hsl(240 10% 3.9%);
+  --foreground: hsl(0 0% 98%);
+  --card: hsl(240 10% 3.9%);
+  --card-foreground: hsl(0 0% 98%);
+  --popover: hsl(240 10% 3.9%);
+  --popover-foreground: hsl(0 0% 98%);
+  --primary: hsl(0 0% 98%);
+  --primary-foreground: hsl(240 5.9% 10%);
+  --secondary: hsl(240 3.7% 15.9%);
+  --secondary-foreground: hsl(0 0% 98%);
+  --muted: hsl(240 3.7% 15.9%);
+  --muted-foreground: hsl(240 5% 64.9%);
+  --accent: hsl(240 3.7% 15.9%);
+  --accent-foreground: hsl(0 0% 98%);
+  --destructive: hsl(0 62.8% 30.6%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(240 3.7% 15.9%);
+  --input: hsl(240 3.7% 15.9%);
+  --ring: hsl(240 4.9% 83.9%);
+  --sidebar-background: hsl(240 5.9% 10%);
+  --sidebar-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-primary: hsl(224.3 76.3% 48%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-border: hsl(240 3.7% 15.9%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+  /* Shugar Design System Variables - Dark Mode */
+  --context-card-border: hsla(0, 0%, 18%, 1);
+  --ds-red-800: oklch(58.01% 0.227 25.12);
+  --ds-red-900: oklch(69.96% 0.2136 22.03);
+  --ds-amber-800: oklch(77.21% 0.1991 64.28);
+  --ds-gray-100: hsla(0, 0%, 10%, 1);
+  --ds-gray-400: hsla(0, 0%, 18%, 1);
+  --ds-gray-700: hsla(0, 0%, 56%, 1);
+  --ds-gray-1000: hsla(0, 0%, 93%, 1);
+  --ds-gray-1000-h: hsl(0, 0%, 80%);
+  --ds-gray-alpha-200: hsla(0, 0%, 100%, 0.09);
+  --ds-gray-alpha-400: hsla(0, 0%, 100%, 0.14);
+  --ds-background-100: hsla(0,0%,4%, 1);
+  --ds-shadow-border: 0 0 0 1px rgba(255, 255, 255, 0.145);
+  --ds-shadow-small: 0px 1px 2px rgba(0, 0, 0, 0.16);
+  --ds-shadow-border-small: var(--ds-shadow-border), var(--ds-shadow-small);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar-background);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Shugar Design System Colors */
+  --color-context-card-border: var(--context-card-border);
+  --color-red-800: var(--ds-red-800);
+  --color-red-900: var(--ds-red-900);
+  --color-amber-800: var(--ds-amber-800);
+  --color-amber-850: var(--ds-amber-850);
+  --color-gray-100: var(--ds-gray-100);
+  --color-gray-400: var(--ds-gray-400);
+  --color-gray-700: var(--ds-gray-700);
+  --color-gray-1000: var(--ds-gray-1000);
+  --color-gray-1000-h: var(--ds-gray-1000-h);
+  --color-gray-alpha-200: var(--ds-gray-alpha-200);
+  --color-gray-alpha-400: var(--ds-gray-alpha-400);
+  --color-background-100: var(--ds-background-100);
+  --shadow-focus-ring: var(--ds-focus-ring);
+  --shadow-border-small: var(--ds-shadow-border-small);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Page shell — one gutter for the nav and every page. The number tracks the
+   card headline, which is inset 8% of its own card. Cards are half-width, so
+   that is 4% of the page. Nav, page titles and card text then share the same
+   left and right edge at every screen size. */
+.site-shell {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 4%;
+}
+
+@media only screen and (max-width: 520px) {
+  /* Cards go full width here, so their 8% inset is 8% of the page */
+  .site-shell {
+    padding-inline: 8%;
+  }
+}
+
+/* Hero text mask — mapped from the original stylesheet, which has three states:
+   1. before the video can play (or if it never loads) the headline is filled
+      with the poster image, using background-clip: text;
+   2. once the video can play, .is-masked switches to the SVG clip-path and the
+      canvas that draws video frames behind the letters;
+   3. browsers without background-clip: text just get white letters.
+   Only state 2 was carried over here, which is why a slow video left the hero
+   blank. The poster is a local file, so state 1 cannot fail the way the
+   hotlinked video can. */
+.text-mask {
+  font-size: 120px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff; /* state 3 */
+  text-align: center;
+}
+
+.headline-top {
+  font-size: 120px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .text-mask:not(.is-masked) {
+    background-image: url("/hero-poster.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+.text-mask.is-masked {
+  clip-path: url(#text-mask-svg-path);
+}
+
+@media only screen and (max-width: 1068px) {
+  .text-mask {
+    font-size: 96px;
+  }
+
+  .headline-top {
+    font-size: 96px;
+  }
+}
+
+@media only screen and (max-width: 735px) {
+  .text-mask {
+    font-size: 60px;
+  }
+
+  .headline-top {
+    font-size: 60px;
+  }
+}
+
+
+.text-mask-screen {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-color: #fff;
+}
+
+.text-mask-canvas-background {
+  display: block;
+  position: absolute;
+  height: auto;
+  z-index: 2;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(20px) saturate(140%) brightness(300%);
+  opacity: 0.8;
+}
+
+.text-mask-svg {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 160px;
+}
+
+@media only screen and (max-width: 1068px) {
+  .text-mask-svg {
+    height: 128px;
+  }
+}
+
+.text-mask-svg-content {
+  font-size: 120px;
+  font-weight: 700;
+  dominant-baseline: central;
+  text-anchor: middle;
+}
+
+@media only screen and (max-width: 1068px) {
+  .text-mask-svg-content {
+    font-size: 96px;
+  }
+}
+
+@media only screen and (max-width: 735px) {
+  .text-mask-svg-content {
+    font-size: 60px;
+  }
+}
+
+/* Card grid — mapped from original, adapted for 3-col max + 16:9 */
+
+.card {
+  width: 50%;
+  float: left;
+}
+
+.card:nth-child(2n + 2) .card-content {
+  border-right-color: transparent;
+}
+
+@media only screen and (max-width: 520px) {
+  .card {
+    width: 100%;
+  }
+  .card:nth-child(n) .card-content {
+    border-right-color: transparent;
+  }
+}
+
+/* Card text — 4-up typography scale (independent of 2-col card layout) */
+.typography-card-headline {
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-size: 2.8vw;
+  box-sizing: border-box;
+  padding: 8% 0 0 8%;
+}
+
+@media only screen and (max-width: 2000px) {
+  .typography-card-headline {
+    font-size: 3.1vw;
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .typography-card-headline {
+    font-size: 4.1vw;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .typography-card-headline {
+    /* 5.2vw, not 6vw: the type shares its card with fixed-size boxes (see
+       .card-text-masked below), so the band needs slack the old size
+       consumed. */
+    font-size: 5.2vw;
+  }
+  .typography-card-headline .card-text-masked {
+    /* The base rule's min-height: 80px is a fixed floor inside a card
+       whose height is 28.125vw — at tablet widths the floor alone
+       overflows the card, which no font-size can fix. 1.2em scales with
+       the type instead. */
+    min-height: 1.2em;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .typography-card-headline {
+    font-size: 40px;
+    position: absolute;
+    z-index: 1;
+    padding-top: 0;
+    top: 50%;
+    left: 8%;
+    transform: translate3d(0, -48%, 0);
+  }
+}
+
+/* Card headline, second line — the card's own photo shown through the letters.
+   This is how the page it is modelled on did it: a still image and
+   background-clip: text, no video, no canvas, no redraw loop. The image URL
+   comes from the card data as a custom property. */
+.card-text-masked {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.15em;
+  padding-bottom: 10px;
+  min-height: 80px;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .card-text-masked {
+    background-image: var(--card-mask-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 35%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    /* Slow drift through the letters. The image is cropped by `cover`, so there
+       is plenty of picture above and below the visible band to move through. */
+    animation: card-mask-pan 24s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes card-mask-pan {
+  from {
+    background-position: center 35%;
+  }
+  to {
+    background-position: center 65%;
+  }
+}
+
+/* Anyone asking for reduced motion gets the same picture, held still. */
+@media (prefers-reduced-motion: reduce) {
+  .card-text-masked {
+    animation: none;
+  }
+}
+
+/* Card image — hidden by default, revealed on hover */
+.card-image {
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  transition: transform 15s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Desktop hover */
+@media (hover: hover) {
+  .card:hover .card-image {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .card:hover .card-text {
+    opacity: 0;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card:hover .card-image,
+  .card.card-active .card-image {
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Touch: engagement-based activation */
+@media (hover: none) {
+  .card.card-active .card-image {
+    opacity: 0.4;
+    transform: scale(1.15);
+    transition:
+      opacity 0.5s ease-in-out,
+      transform 12s ease-out;
+  }
+}
+
+/* Grid clearfix */
+.card-grid-wrapper::after {
+  content: "";
+  display: table;
+  clear: both;
+}
