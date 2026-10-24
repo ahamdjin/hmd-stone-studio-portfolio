@@ -12,6 +12,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      # The template's npm lockfile predates its latest package.json changes.
+      - run: npm install --no-audit --no-fund
       - run: npx tsc -b --pretty false
       - run: npm run build
